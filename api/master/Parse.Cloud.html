@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Parse.html">Parse</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Parse.Cloud.html">Cloud</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.afterDelete">afterDelete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.afterSave">afterSave</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.beforeDelete">beforeDelete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.beforeSave">beforeSave</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.httpRequest">httpRequest</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.job">job</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Parse.html">Parse</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="Parse.Cloud.html">Cloud</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.afterDelete">afterDelete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.afterFind">afterFind</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.afterSave">afterSave</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.beforeDelete">beforeDelete</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.beforeFind">beforeFind</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.beforeSave">beforeSave</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.httpRequest">httpRequest</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Parse.Cloud.html#.job">job</a></span></li>
 </nav>
 
 <div id="main">
@@ -259,6 +259,174 @@ Parse.Cloud.afterDelete(Parse.User, async (request) => {
 
             <td class="description last">
                 <p>The function to run after a delete. This function can be async and should take just one parameter, <a href="Parse.Cloud.html#.TriggerRequest">Parse.Cloud.TriggerRequest</a>.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".afterFind"><span class="type-signature">(static) </span>afterFind<span class="signature">(arg1, func)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Registers a after find function.</p>
+<p><strong>Available in Cloud Code only.</strong></p>
+<p>If you want to use afterFind for a predefined class in the Parse JavaScript SDK (e.g. Parse.User), you should pass the class itself and not the String for arg1.</p>
+<pre class="prettyprint source"><code>Parse.Cloud.afterFind('MyCustomClass', async (request) => {
+  // code here
+})
+
+Parse.Cloud.afterFind(Parse.User, async (request) => {
+  // code here
+})</code></pre>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arg1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+|
+
+<span class="param-type"><code>Parse.Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The Parse.Object subclass to register the after find function for. This can instead be a String that is the className of the subclass.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>function</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The function to run before a find. This function can be async and should take just one parameter, <a href="Parse.Cloud.html#.AfterFindRequest">Parse.Cloud.AfterFindRequest</a>.</p>
                 
             </td>
         </tr>
@@ -595,6 +763,174 @@ Parse.Cloud.beforeDelete(Parse.User, (request) => {
 
             <td class="description last">
                 <p>The function to run before a delete. This function can be async and should take one parameter, a <a href="Parse.Cloud.html#.TriggerRequest">Parse.Cloud.TriggerRequest</a>.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".beforeFind"><span class="type-signature">(static) </span>beforeFind<span class="signature">(arg1, func)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Registers a before find function.</p>
+<p><strong>Available in Cloud Code only.</strong></p>
+<p>If you want to use beforeFind for a predefined class in the Parse JavaScript SDK (e.g. Parse.User), you should pass the class itself and not the String for arg1.</p>
+<pre class="prettyprint source"><code>Parse.Cloud.beforeFind('MyCustomClass', async (request) => {
+  // code here
+})
+
+Parse.Cloud.beforeFind(Parse.User, async (request) => {
+  // code here
+})</code></pre>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>arg1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+|
+
+<span class="param-type"><code>Parse.Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The Parse.Object subclass to register the before find function for. This can instead be a String that is the className of the subclass.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>func</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>function</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The function to run before a find. This function can be async and should take just one parameter, <a href="Parse.Cloud.html#.BeforeFindRequest">Parse.Cloud.BeforeFindRequest</a>.</p>
                 
             </td>
         </tr>
@@ -1118,6 +1454,624 @@ Parse.Cloud.beforeSave(Parse.User, (request) => {
         <h3 class="subsection-title">Type Definitions</h3>
 
         
+                
+<div class="section-members">
+<h4 class="name" id=".AfterFindRequest">AfterFindRequest</h4>
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>installationId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If set, the installationId triggering the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>master</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If true, means the master key was used.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Parse.User</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If set, the user that made the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Parse.Query</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The query triggering the hook.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>results</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;Parse.Object></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The results the query yielded.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The IP address of the client making the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>headers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The original HTTP headers for the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>triggerName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the trigger (<code>beforeSave</code>, <code>afterSave</code>, ...)</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>log</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current logger inside Parse Server.</p></td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+            
+                
+<div class="section-members">
+<h4 class="name" id=".BeforeFindRequest">BeforeFindRequest</h4>
+
+
+
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>installationId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If set, the installationId triggering the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>master</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If true, means the master key was used.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Parse.User</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>If set, the user that made the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Parse.Query</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The query triggering the hook.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ip</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The IP address of the client making the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>headers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The original HTTP headers for the request.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>triggerName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the trigger (<code>beforeSave</code>, <code>afterSave</code>, ...)</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>log</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The current logger inside Parse Server.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isGet</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>wether the query a <code>get</code> or a <code>find</code></p></td>
+        </tr>
+
+        
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+            
                 
 <div class="section-members">
 <h4 class="name" id=".FunctionRequest">FunctionRequest</h4>
@@ -2284,7 +3238,7 @@ Parse.Cloud.beforeSave(Parse.User, (request) => {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 09 2018 13:16:53 GMT-0400 (EDT) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Aug 09 2018 13:25:31 GMT-0400 (EDT) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
